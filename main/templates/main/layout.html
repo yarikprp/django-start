@@ -1,12 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="{% static  'main/css/main.css' %}">
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <aside>
+        <img src="{% static 'main/img/code.svg' %}" alt="Логотип">
+        <span class="logo">Изучение джанго</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li> <i class="fas fa-home"></i> Главная</li></a>
+            <a href="{% url 'about' %}"><li><i class="fas fa-address-card"></i> Про нас</li></a>
+            <a href=""><li><i class="fas fa-paper-plane"></i> Контакты</li></a>
+        </ul>
+    </aside>
+    <main> 
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>
