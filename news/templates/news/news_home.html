@@ -1,13 +1,20 @@
 {% extends "main/layout.html" %}
 
-{% block title %}
-    Новости на сайте
-{% endblock %}
+{% block title %}Новости на сайте{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>Новости на сайте</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officia animi tenetur optio perspiciatis culpa. Veniam laboriosam sit possimus tenetur ipsa. Rerum culpa asperiores quia iste? Iste expedita odit deserunt?</p>
-        <button class="btn btn-warning">Про нас</button>
-    </div>
+<div class="features">
+    <h1>Новости на сайте</h1>
+
+    {% if news %}
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Нет новостей!</p>
+    {% endif %}
+</div>
 {% endblock %}
